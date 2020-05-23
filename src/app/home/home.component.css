@@ -1,0 +1,65 @@
+.zoom:hover {
+    /* transform: scale(1.05); (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    -ms-transform: scale(1.04); /* IE 9 */
+    -webkit-transform: scale(1.04); /* Safari 3-8 */
+    transform: scale(1.04);
+  }
+
+
+  /* .card-img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #bfbfbf/;
+  }
+  
+  .container:hover .card-img-overlay {
+    opacity: 0.5;
+  } */
+  
+  .card-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #bfbfbf;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .container:hover .card-img-overlay {
+    height: 100%;
+    opacity: 0.5;
+  }
+  .text {
+    color:   #ff4d4d
+    ;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+  }
+
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background: url(https://www.iitms.co.in/Images/cta-bg.jpg) no-repeat 50% 50%;
+    /* https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Beautiful-Full-HD-Wallpaper-Download-Free-PIC-WPE0010098.jpg) no-repeat 50% 50%; */
+    background-size: cover;
+}
+  
+

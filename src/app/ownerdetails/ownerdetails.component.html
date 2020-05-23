@@ -1,0 +1,160 @@
+<app-nav></app-nav>
+<br><br>
+<div *ngIf="isloading" style="text-align: center;">
+   <app-spinner></app-spinner>
+</div>
+<div class="container col-md-6">
+    <div *ngFor="let x of Arr(building).fill(1) index as i">
+        <div class="card" width="70%" style="box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+        background: rgba(255, 255, 255, 0.90); border-radius: 10px;" >
+            <div class="card-body" style="font-weight: bold;">
+                <form #buildingform="ngForm" (ngSubmit)="addbuilding(buildingform,i)">
+                    <h3 class="text-center" style="color: tomato;">Building {{i}}</h3>
+                    <div class="form-group">
+                        <label for="hostelname" class="bmd-label-floating">Building Name</label>
+                        <input type="text" name="buildingname" id="hostelname" class="form-control" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label for="floors" class="bmd-label-floating">Number of Floors</label>
+                        <input type="number" name="floors" id="floors" class="form-control" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rooms" class="bmd-label-floating">Number of Rooms in each floor</label>
+                        <input type="number" name="rooms" id="rooms" class="form-control" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Capacity" class="bmd-label-floating">Capacity of Each Room</label>
+                        <input type="number" name="capacity" id="capacity" class="form-control" ngModel required>
+                    </div>
+
+                    <br>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="radio" id="optionsRadios1" value="ac" ngModel required>
+                            AC
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="radio" id="optionsRadios2" ngModel required value="nonac">
+                            Non-AC
+                        </label>
+                    </div>
+                    <div class="float-right">
+                        <button  type="submit" class="btn btn-raised btn-info" style="border-radius: 15px;" [disabled]="!buildingform.valid">Submit</button>
+                        
+                    </div><br><br>
+                    <div class="float-right">
+                        <small class="form-text text-muted"><b>You must click submit after updating the building details</b></small>
+                    </div>
+
+                </form>
+
+            </div>
+             
+        </div>
+          <br><br>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-raised btn-success btn-lg" style="border-radius: 15px;" (click)="totaldone()">DONE</button>
+        <small class="form-text text-muted"><b>You must click DONE to submit all your Building Details</b></small>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<button type="button" id="modalpopup" hidden="true" class="btn btn-primary" data-toggle="modal"
+        data-target="#modalPoll1">Launch
+        modal</button>
+
+    <!-- Modal: modalPoll -->
+    <div class="modal fade" id="modalPoll1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header" style="background-color: #FF3547; height: 60px;">
+                    <p class="heading lead" style="color: white;">Hostel Management
+                    </p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    {{message}}
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                        data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
+                        <i class="fa fa-paper-plane ml-1"></i>
+                    </a>&nbsp;
+                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                        style="border-radius: 15px;">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button type="button" id="modalpop" hidden="true" class="btn btn-primary" data-toggle="modal"
+    data-target="#modalPoll-1">Launch
+    modal</button>
+
+<!-- Modal: modalPoll -->
+<div class="modal fade" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header" style="background-color: #FF3547; height: 60px;">
+                <p class="heading lead" style="color: white;">Hostel Management
+                </p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <label for="inputEmail4" class="bmd-label-floating">Enter the Number of Buildings</label>
+                <input class="form-control" type="number" [(ngModel)]="building" [ngModelOptions]="{standalone: true}">
+            </div>
+
+
+            <div class="modal-footer justify-content-center">
+                <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                    data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
+                    <i class="fa fa-paper-plane ml-1"></i>
+                </a>&nbsp;
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                    style="border-radius: 15px;">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>

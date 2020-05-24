@@ -103,7 +103,7 @@ export class OwnerdetailsComponent implements OnInit,AfterViewInit {
             this.authservice.ownerdetails(data).subscribe((d)=>{
                   
                  console.log(d);
-                 this.router.navigate(['/home'])
+                //  this.router.navigate(['/home'])
 
             },(error)=>{
                 
@@ -122,7 +122,7 @@ export class OwnerdetailsComponent implements OnInit,AfterViewInit {
 
       })
       this.isloading=false;
-      // this.router.navigate(['/home'])
+      this.router.navigate(['/dashboard'])
 
   }
 

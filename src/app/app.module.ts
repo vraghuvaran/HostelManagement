@@ -14,7 +14,12 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { OwnerdetailsComponent } from './ownerdetails/ownerdetails.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AddstudentComponent } from './addstudent/addstudent.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +31,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FooterComponent,
     MyprofileComponent,
     OwnerdetailsComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SidebarComponent,
+    DashboardComponent,
+    NavbarComponent,
+    AddstudentComponent
     
   ],
   imports: [

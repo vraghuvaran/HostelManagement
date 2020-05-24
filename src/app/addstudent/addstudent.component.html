@@ -1,0 +1,193 @@
+
+<div class="wrapper d-flex align-items-stretch">
+
+    <app-sidebar></app-sidebar>
+
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <app-navbar></app-navbar>
+        <br><br>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card" style="border-radius: 10px;">
+                            <div class="card-header card-header-primary"
+                                style="height: 90px;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);">
+                                <h4 class="card-title text-white">Add Student</h4>
+                                <p class="card-category text-white" style="opacity: 0.6; font-weight: 100;">Fill all the
+                                    details</p>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="text-dark" style="opacity: 0.9;">Room Info</h4>
+                                <form #studentform="ngForm" (ngSubmit)="addstudent(studentform)">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="buildingname" class="bmd-label-floating">Building
+                                                    Name</label>
+                                                    <!-- <input type="text" class="form-control" [(ngModel)]="bname" [ngModelOptions]="{standalone: true}"
+                                                    list="buildingname" /> -->
+                                                <select class="form-control" id="buildingname" name="blockName" ngModel required>
+                                                    <option selected>Choose..</option> 
+                                                    <option *ngFor="let p of buildings" value={{p}}>{{p}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="floornumber" class="bmd-label-floating">Floor
+                                                    Number</label>
+                                                <select class="form-control" id="floornumber" name="floor" ngModel required>
+                                                    <option selected>Choose..</option>
+                                                    <option *ngFor = "let x of floors" value={{x}}>{{x}}</option>
+    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="roomnumber" class="bmd-label-floating">Room
+                                                    Number</label>
+                                                <select class="form-control" id="roomnumber" name="room" ngModel required>
+                                                    <option selected>Choose..</option>
+                                                    <option *ngFor = "let y of rooms" value = {{y}}>{{y}}</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <h4 class="text-dark" style="opacity: 0.9;">Personal Details</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Full Name</label>
+                                                <input type="text" class="form-control" name="name" ngModel required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Email Id</label>
+                                                <input type="text" class="form-control" name="email" ngModel email required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Father Name</label>
+                                                <input type="text" class="form-control" name="father" ngModel required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Mother Name</label>
+                                                <input type="text" class="form-control" name="mother" ngModel required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">College Name</label>
+                                                <input type="text" class="form-control" name="college" ngModel required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Branch</label>
+                                                <input type="text" class="form-control" name="branch" ngModel required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Year</label>
+                                                <input type="number" class="form-control" name="year" ngModel required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Roll Number</label>
+                                                <input type="text" class="form-control" name="rollno" ngModel required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="example">Select Date</label>
+                                                <input type="date" id="example" class="form-control" name="selectdate" ngModel required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Mobile Number</label>
+                                                <input type="number" class="form-control" name="phoneNo" ngModel required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Address for Communication</label>
+                                                <input type="text" class="form-control" name="address" ngModel required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary pull-right btnstyle"
+                                        style="font-weight: 100;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);" [disabled]="!studentform.valid" >
+                                        Submit</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<button type="button" id="modalpop" hidden="true" class="btn btn-primary" data-toggle="modal"
+        data-target="#modalPoll-1">Launch
+        modal</button>
+
+    <!-- Modal: modalPoll -->
+    <div class="modal fade" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header" style="background-color: #FF3547; height: 60px;">
+                    <p class="heading lead" style="color: white;">Hostel Management
+                    </p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    {{message}}
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                        data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
+                        <i class="fa fa-paper-plane ml-1"></i>
+                    </a>&nbsp;
+                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                        style="border-radius: 15px;">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit{
 
       localStorage.setItem("auth-token",d.toString());
 
-      this.router.navigate(['/home'])
+      this.router.navigate(['/dashboard'])
 
     },(error)=>{
        

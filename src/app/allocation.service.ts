@@ -28,6 +28,18 @@ export class AllocationService {
     return this.http.patch(this.url+'/api/posts/students',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})   
   }
 
+  editemail(email: any){
+    return this.http.get(this.url+'',{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))});
+  }
+  
+  deletestudent(blockname: any,email: any){
+    return this.http.delete(this.url+'/api/posts/students/'+blockname+'/'+email,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
+
+  // url/api/posts/student/blockname/email
+  finaledit(data: any){
+    return this.http.patch(this.url+'',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
 
 }
 // {

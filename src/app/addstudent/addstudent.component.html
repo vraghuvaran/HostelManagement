@@ -1,4 +1,3 @@
-
 <div class="wrapper d-flex align-items-stretch">
 
     <app-sidebar></app-sidebar>
@@ -14,7 +13,7 @@
                         <div class="card" style="border-radius: 10px;">
                             <div class="card-header card-header-primary"
                                 style="height: 90px;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);">
-                                <h4 class="card-title text-white">Add Student</h4>
+                                <h4 class="card-title text-white">Allocate Student</h4>
                                 <p class="card-category text-white" style="opacity: 0.6; font-weight: 100;">Fill all the
                                     details</p>
                             </div>
@@ -26,10 +25,11 @@
                                             <div class="form-group">
                                                 <label for="buildingname" class="bmd-label-floating">Building
                                                     Name</label>
-                                                    <!-- <input type="text" class="form-control" [(ngModel)]="bname" [ngModelOptions]="{standalone: true}"
+                                                <!-- <input type="text" class="form-control" [(ngModel)]="bname" [ngModelOptions]="{standalone: true}"
                                                     list="buildingname" /> -->
-                                                <select class="form-control" id="buildingname" name="blockName" ngModel required>
-                                                    <option selected>Choose..</option> 
+                                                <select class="form-control" id="buildingname" name="blockName" ngModel
+                                                    required>
+                                                    <option selected>Choose..</option>
                                                     <option *ngFor="let p of buildings" value={{p}}>{{p}}</option>
                                                 </select>
                                             </div>
@@ -40,10 +40,11 @@
                                             <div class="form-group">
                                                 <label for="floornumber" class="bmd-label-floating">Floor
                                                     Number</label>
-                                                <select class="form-control" id="floornumber" name="floor" ngModel required>
+                                                <select class="form-control" id="floornumber" name="floor" ngModel
+                                                    required>
                                                     <option selected>Choose..</option>
-                                                    <option *ngFor = "let x of floors" value={{x}}>{{x}}</option>
-    
+                                                    <option *ngFor="let x of floors" value={{x}}>{{x}}</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -53,10 +54,11 @@
                                             <div class="form-group">
                                                 <label for="roomnumber" class="bmd-label-floating">Room
                                                     Number</label>
-                                                <select class="form-control" id="roomnumber" name="room" ngModel required>
+                                                <select class="form-control" id="roomnumber" name="room" ngModel
+                                                    required>
                                                     <option selected>Choose..</option>
-                                                    <option *ngFor = "let y of rooms" value = {{y}}>{{y}}</option>
-                                                   
+                                                    <option *ngFor="let y of rooms" value={{y}}>{{y}}</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -73,7 +75,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Email Id</label>
-                                                <input type="text" class="form-control" name="email" ngModel email required>
+                                                <input type="text" class="form-control" name="email" ngModel email
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -123,13 +126,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example">Select Date</label>
-                                                <input type="date" id="example" class="form-control" name="selectdate" ngModel required>
+                                                <input type="date" id="example" class="form-control" name="selectdate"
+                                                    ngModel required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Mobile Number</label>
-                                                <input type="number" class="form-control" name="phoneNo" ngModel required>
+                                                <input type="number" class="form-control" name="phoneNo" ngModel
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -143,13 +148,85 @@
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-primary pull-right btnstyle"
-                                        style="font-weight: 100;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);" [disabled]="!studentform.valid" >
+                                        style="font-weight: 100;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);"
+                                        [disabled]="!studentform.valid">
                                         Submit</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-4">
+                        <br>
+                        <div class="col-md-12">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-header card-header-primary"
+                                    style="height: 90px;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);">
+                                    <h4 class="card-title text-white">Reallocate Student</h4>
+                                    <!-- <p class="card-category text-white" style="opacity: 0.6; font-weight: 100;">Fill all the
+                                        details</p> -->
+                                </div>
+                                <div class="card-body">
+                                    <form #editstudent="ngForm" (ngSubmit)="editemail(editstudent)">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Enter Email</label>
+                                                    <input type="text" class="form-control" name="email" required email
+                                                        ngModel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right btnstyle"
+                                            style="font-weight: 100;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);"
+                                            [disabled]="!editstudent.valid">
+                                            Submit</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-12">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-header card-header-primary"
+                                    style="height: 90px;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);">
+                                    <h4 class="card-title text-white">Remove Student</h4>
+                                    <!-- <p class="card-category text-white" style="opacity: 0.6; font-weight: 100;">Fill all the
+                                        details</p> -->
+                                </div>
+                                <div class="card-body">
+                                    <form #delstudent="ngForm" (ngSubmit)="deletestudent(delstudent)">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Enter Block</label>
+                                                    <input type="text" class="form-control" name='blockname' required 
+                                                        ngModel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                               <div class="form-group">
+                                                    <label class="bmd-label-floating">Enter Email</label>
+                                                    <input type="text" class="form-control" name="email" required email ngModel>
+                                               </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right btnstyle"
+                                            style="font-weight: 100;box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);"
+                                            [disabled]="!delstudent.valid">
+                                            Submit</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
 
                 </div>
             </div>
@@ -160,34 +237,219 @@
 
 
 <button type="button" id="modalpop" hidden="true" class="btn btn-primary" data-toggle="modal"
-        data-target="#modalPoll-1">Launch
-        modal</button>
+    data-target="#modalPoll-1">Launch
+    modal</button>
 
-    <!-- Modal: modalPoll -->
-    <div class="modal fade" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header" style="background-color: #FF3547; height: 60px;">
-                    <p class="heading lead" style="color: white;">Hostel Management
-                    </p>
+<!-- Modal: modalPoll -->
+<div class="modal fade" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header" style="background-color: #FF3547; height: 60px;">
+                <p class="heading lead" style="color: white;">Hostel Management
+                </p>
 
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="white-text">×</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    {{message}}
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
-                        data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
-                        <i class="fa fa-paper-plane ml-1"></i>
-                    </a>&nbsp;
-                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
-                        style="border-radius: 15px;">Cancel</a>
-                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                {{message}}
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                    data-dismiss="modal" style="border-radius: 15px;" (click)="submitmodal()">Submit
+                    <i class="fa fa-paper-plane ml-1"></i>
+                </a>&nbsp;
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                    style="border-radius: 15px;">Cancel</a>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<button type="button" id="edit" hidden="true" class="btn btn-primary" data-toggle="modal" data-target="#modalj">Launch
+    modal</button>
+
+
+<div class="modal fade" id="modalj" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-backdrop="false">
+    <div class="modal-dialog modal-full-height  modal-dialog-centered modal-notify modal-info" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header" style="background-color: #3f51b5; height: 60px;">
+                <p class="heading lead" style="color: white;">Edit Details
+                </p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <!-- <div class="form-group col-md-12">
+                        <label for="inputState">Unit Type</label>
+                        <select id="inputState" class="form-control" [(ngModel)]="unit"
+                            [ngModelOptions]="{standalone: true}">
+                            <option selected>Choose...</option>
+                            <option>Each</option>
+                            <option>Bunch</option>
+                            <option>Carton</option>
+                            <option>Litre</option>
+                            <option>Tonnes</option>
+                            <option>Box</option>
+                            <option>Bag</option>
+                            <option>Tray</option>
+                            <option>Dozen</option>
+                            <option>Whole</option>
+                        </select>
+                    </div> -->
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="buildingname1" class="bmd-label-floating">Building
+                                Name</label>
+                            <!-- <input type="text" class="form-control" [(ngModel)]="blockName" [ngModelOptions]="{standalone: true}"
+                                list="buildingname1" /> -->
+                            <select class="form-control" id="buildingname1" name="blockName" [(ngModel)]="blockName"
+                                [ngModelOptions]="{standalone: true}" required>
+                                <option selected>Choose..</option>
+                                <option *ngFor="let p of buildings" value={{p}}>{{p}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="floornumber" class="bmd-label-floating">Floor
+                                Number</label>
+                            <select class="form-control" id="floornumber1" name="floor" [(ngModel)]="floor"
+                                [ngModelOptions]="{standalone: true}" required>
+                                <option selected>Choose..</option>
+                                <option *ngFor="let x of floors" value={{x}}>{{x}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="roomnumber" class="bmd-label-floating">Room
+                                Number</label>
+                            <select class="form-control" id="roomnumber" name="room" [(ngModel)]="room"
+                                [ngModelOptions]="{standalone: true}" required>
+                                <option selected>Choose..</option>
+                                <option *ngFor="let y of rooms" value={{y}}>{{y}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h4 class="text-dark" style="opacity: 0.9;">Personal Details</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Full Name</label>
+                            <input type="text" class="form-control" name="name" [(ngModel)]="name"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Email Id</label>
+                            <input type="text" class="form-control" name="email" [(ngModel)]="floor"
+                                [ngModelOptions]="{standalone: true}" email required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Father Name</label>
+                            <input type="text" class="form-control" name="father" [(ngModel)]="father"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Mother Name</label>
+                            <input type="text" class="form-control" name="mother" [(ngModel)]="mother"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="">College Name</label>
+                            <input type="text" class="form-control" name="college" [(ngModel)]="college"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="">Branch</label>
+                            <input type="text" class="form-control" name="branch" [(ngModel)]="branch"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="">Year</label>
+                            <input type="number" class="form-control" name="year" [(ngModel)]="year"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Roll Number</label>
+                            <input type="text" class="form-control" name="rollno" [(ngModel)]="rollno"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="example">Select Date</label>
+                            <input type="date" id="example" class="form-control" name="selectdate"
+                                [(ngModel)]="selectdate" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Mobile Number</label>
+                            <input type="number" class="form-control" name="phoneNo" [(ngModel)]="phoneNo"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="">Address for Communication</label>
+                            <input type="text" class="form-control" name="address" [(ngModel)]="address"
+                                [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a type="button" style=" color: white;" class="btn btn-success btn-raised  waves-effect waves-light"
+                    data-dismiss="modal" style="border-radius: 15px;" (click)="finaledit()">Submit
+                    <i class="fa fa-paper-plane ml-1"></i>
+                </a>&nbsp;
+                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal"
+                    style="border-radius: 15px;">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

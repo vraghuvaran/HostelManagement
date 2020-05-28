@@ -9,6 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path: 'sidebar', component: SidebarComponent},
   {path: 'dashboard',component: DashboardComponent},
   {path: 'addstudent', component: AddstudentComponent},
-  {path: 'navbar', component: NavbarComponent}
+  {path: 'navbar', component: NavbarComponent},
+  {path: 'buildingwiseinfo', component: BuildingwiseinfoComponent},
+  {path: 'logout',component: LogoutComponent}
   
   
 ];

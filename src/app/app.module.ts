@@ -19,6 +19,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddstudentComponent } from './addstudent/addstudent.component';
+import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { AddstudentComponent } from './addstudent/addstudent.component';
     SidebarComponent,
     DashboardComponent,
     NavbarComponent,
-    AddstudentComponent
+    AddstudentComponent,
+    BuildingwiseinfoComponent,
+    LogoutComponent
     
   ],
   imports: [

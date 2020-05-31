@@ -35,4 +35,8 @@ export class AuthserviceService {
 
   }
 
+  fetchownerdetails(){
+    return this.http.get(this.url+'/api/receive/user/userbio',{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
+
 }

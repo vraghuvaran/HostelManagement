@@ -23,7 +23,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="buildingname" class="bmd-label-floating">Building
+                                                <label for="buildingname" class="bmd-label-floating">Block
                                                     Name</label>
                                                 <!-- <input type="text" class="form-control" [(ngModel)]="bname" [ngModelOptions]="{standalone: true}"
                                                     list="buildingname" /> -->
@@ -172,6 +172,15 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
+                                                    <label class="bmd-label-floating">Enter Block Name</label>
+                                                    <input type="text" class="form-control" name="blockname" required
+                                                        ngModel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
                                                     <label class="bmd-label-floating">Enter Email</label>
                                                     <input type="text" class="form-control" name="email" required email
                                                         ngModel>
@@ -310,14 +319,14 @@
                     </div> -->
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="buildingname1" class="bmd-label-floating">Building
+                            <label for="buildingname1" class="bmd-label-floating">Block
                                 Name</label>
                             <!-- <input type="text" class="form-control" [(ngModel)]="blockName" [ngModelOptions]="{standalone: true}"
                                 list="buildingname1" /> -->
-                            <select class="form-control" id="buildingname1" name="blockName" [(ngModel)]="blockName"
+                            <select class="form-control" id="buildingname1" name="blockNameU" [(ngModel)]="blockNameU"
                                 [ngModelOptions]="{standalone: true}" required>
                                 <option selected>Choose..</option>
-                                <option *ngFor="let p of buildings" value={{p}}>{{p}}</option>
+                                <option *ngFor="let p of showbuildings" value={{p}}>{{p}}</option>
                             </select>
                         </div>
                     </div>
@@ -331,7 +340,6 @@
                                 [ngModelOptions]="{standalone: true}" required>
                                 <option selected>Choose..</option>
                                 <option *ngFor="let x of floors" value={{x}}>{{x}}</option>
-
                             </select>
                         </div>
                     </div>
@@ -363,7 +371,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="">Email Id</label>
-                            <input type="text" class="form-control" name="email" [(ngModel)]="floor"
+                            <input type="text" class="form-control" name="email" [(ngModel)]="email"
                                 [ngModelOptions]="{standalone: true}" email required>
                         </div>
                     </div>
@@ -380,7 +388,7 @@
                         <div class="form-group">
                             <label class="">Mother Name</label>
                             <input type="text" class="form-control" name="mother" [(ngModel)]="mother"
-                                [ngModelOptions]="{standalone: true}" required>
+                                [ngModelOptions]="{standalone: true}" readonly required>
                         </div>
                     </div>
                 </div>
@@ -421,7 +429,7 @@
                         <div class="form-group">
                             <label for="example">Select Date</label>
                             <input type="date" id="example" class="form-control" name="selectdate"
-                                [(ngModel)]="selectdate" [ngModelOptions]="{standalone: true}" required>
+                                [(ngModel)]="selectdate" [ngModelOptions]="{standalone: true}" readonly required>
                         </div>
                     </div>
                     <div class="col-md-6">

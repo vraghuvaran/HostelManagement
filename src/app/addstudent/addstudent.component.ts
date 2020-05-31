@@ -22,20 +22,22 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
 
 
   address: any
+  blockName: any
   unit: String
-  blockName = "kldjs"
+  blockNameU: any
   branch: any
   college: any
   email: any
   father: any
   floor: any
-  mother = "kjkjjhjkk"
+  mother: any
   name: any
   phoneNo: any
   rollno: any
   room: any
   selectdate: any
   year: any
+  showbuildings: any
 
   constructor(private router: Router, private element: ElementRef, private allocate: AllocationService) { }
 
@@ -83,6 +85,20 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
 
     })
 
+
+    this.allocate.showbuildings().subscribe((d)=>{
+   
+         this.showbuildings=d;
+         console.log(d);
+
+    },(error)=>{
+       
+        if(error['status']==500){
+          this.message='Internal Server Error';
+          document.getElementById('modalpop').click();
+        }
+
+    })
 
     //These are changes made regarding on add student on the page itself
 
@@ -221,7 +237,6 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
 
     }, (error) => {
 
-
       console.log(error);
 
       if (error.status == 401) {
@@ -247,6 +262,9 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
       return;
     }
 
+
+    console.log(form.value);
+
     // this.address = "sdfsdf"
     // this.unit = 'fsdfs'
     // this.blockName = "kldjs"
@@ -265,12 +283,15 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
     // document.getElementById('edit').click();
 
 
-    this.allocate.editemail(form.value.email).subscribe((d) => {
+    this.allocate.editemail(form.value.blockname,form.value.email).subscribe((d) => {
+
+      console.log(d);
 
       this.studentinfo = d;
 
       this.address = d['address']
-      this.blockName = d['blockName']
+      this.blockNameU = d['blockName']
+      this.blockName=d['blockName'];
       this.branch = d['branch']
       this.college = d['college']
       this.email = d['email']
@@ -281,7 +302,8 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
       this.phoneNo = d['phoneNo']
       this.rollno = d['rollno']
       this.room = d['room']
-      this.selectdate = d['selectdate']
+      this.selectdate = d['selectdate'].slice(0,10)
+      // console.log('selectdate',this.selectdate)
       this.year = d['year']
 
 
@@ -289,6 +311,8 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
 
 
     }, (error) => {
+
+      console.log(error);
       if (error.status == 400) {
         this.message = 'No Student Exists with this Email';
         document.getElementById('modalpop').click();
@@ -305,17 +329,56 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
   finaledit() {
 
 
+    // name:req.body.name,
+    // email:req.body.email,
+    // phoneNo:req.body.phoneNo,
+    // college:req.body.college,
+    // floor:req.body.floor,
+    // room:req.body.room,
+    // year:req.body.year,
+    // block:req.body.blockName,
+    // father:req.body.father,
+    // mother:req.body.mother,
+    // rollno: parseInt(req.body.rollno),
+    // selectdate:req.body.selectdate,
+    // branch:req.body.branch,
+    // address:req.body.address
+
+
+
+
+
+
+    // this.address = d['address']
+    //   this.blockName = d['blockName']
+    //   this.branch = d['branch']
+    //   this.college = d['college']
+    //   this.email = d['email']
+    //   this.father = d['father']
+    //   this.floor = d['floor']
+    //   this.mother = d['mother']
+    //   this.name = d['name']
+    //   this.phoneNo = d['phoneNo']
+    //   this.rollno = d['rollno']
+    //   this.room = d['room']
+    //   this.selectdate = d['selectdate'].slice(0,10)
+    //   // console.log('selectdate',this.selectdate)
+    //   this.year = d['year']
+
     //here the data(all the variables) we binded to variables with ngModel need to be represented in a JSON format
 
-     var data={}
+     var data={name:this.name,email:this.email,phoneNo: this.phoneNo,college: this.college,floor:this.floor ,room: this.room ,year: this.year ,blockName: this.blockName,blockNameU: this.blockNameU,father:this.father,mother: this.mother ,rollno: this.rollno ,selectdate: this.selectdate,branch: this.branch,address: this.address}
     
+     console.log(data);
+
     this.allocate.finaledit(data).subscribe((d)=>{
 
       alert('Edited Successfully');
-      console.log(d);
+      // console.log(d);
 
     },(error)=>{
       
+      // console.log(error);
       if(error.status==500){
           alert('Internal server Error');
       }

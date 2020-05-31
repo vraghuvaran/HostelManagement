@@ -50,13 +50,14 @@ export class RegisterComponent implements OnInit,AfterViewInit {
 
       this.isloading=true;
 
-      this.data={name: form.value.fullname,email: form.value.email,password: form.value.password,phone: form.value.mobilenumber.toString(),city: form.value.city,state: form.value.state};
+      this.data={name: form.value.fullname,email: form.value.email,password: form.value.password, hostelname: form.value.hostelname,phone: form.value.mobilenumber.toString(),city: form.value.city,state: form.value.state};
 
       this.authservice.register(this.data).subscribe((d)=>{
          
         localStorage.setItem("auth-token",d.toString());
         this.isloading=false;
         this.router.navigate(['/ownerdetails']);
+
       
       },(error)=>{
         

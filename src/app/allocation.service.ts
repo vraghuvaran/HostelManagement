@@ -15,6 +15,11 @@ export class AllocationService {
   getbuildings(){
     return this.http.get(this.url+'/api/room/choose/block',{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))});
   }
+
+  // {{url}}/api/room/choose/block/all
+  showbuildings(){
+    return this.http.get(this.url+'/api/room/choose/block/all',{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+  }
   
   getfloors(blockName: any){
    return this.http.get(this.url+'/api/room/choose/block/floor/'+blockName,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
@@ -28,8 +33,8 @@ export class AllocationService {
     return this.http.patch(this.url+'/api/posts/students',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})   
   }
 
-  editemail(email: any){
-    return this.http.get(this.url+'',{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))});
+  editemail(blockname: any,email: any){
+    return this.http.get(this.url+'/api/room/detail/'+blockname+'/'+email,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))});
   }
   
   deletestudent(blockname: any,email: any){
@@ -38,7 +43,7 @@ export class AllocationService {
 
   // url/api/posts/student/blockname/email
   finaledit(data: any){
-    return this.http.patch(this.url+'',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+    return this.http.post(this.url+'',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
   }
 
 }

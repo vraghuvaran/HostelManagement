@@ -128,6 +128,53 @@
 
 
 
+        <br><br>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card" style="border-radius: 15px; font-weight: 100;">
+                            <div class="card-header card-header-primary" style="border-radius: 5px;">
+                                <h4 class="card-title text-white">Blocks Info</h4>
+                                <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                            </div>
+                            <div class="card-body">  
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th style="color: #9c27b0; text-align: center;">
+                                                Block Names
+                                            </th>
+                                            
+                                        </thead>
+                                        <tbody *ngFor="let x of showbuildings">
+                                            <tr style="text-align: center; font-weight: 1000;">
+                                                <td>
+                                                    {{x}}
+                                                </td>
+                                                
+                                            </tr>
+                                            
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+
+
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
 

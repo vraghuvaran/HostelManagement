@@ -41,13 +41,12 @@ export class AllocationService {
     return this.http.delete(this.url+'/api/posts/students/'+blockname+'/'+email,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
   }
 
-  // url/api/posts/student/blockname/email
   finaledit(data: any){
-    return this.http.post(this.url+'',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+
+    console.log(data);
+    return this.http.post(this.url+'/api/posts/students/update',data,{observe: 'body',params: new HttpParams().append('token', localStorage.getItem('auth-token'))})
+      
   }
 
 }
-// {
-// 	"blockName":"D",
-// 	"floor":1
-// }
+

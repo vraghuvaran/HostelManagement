@@ -290,20 +290,21 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
       this.studentinfo = d;
 
       this.address = d['address']
-      this.blockNameU = d['blockName']
-      this.blockName=d['blockName'];
+      // console.log('block is ',d['block']);
+      this.blockNameU = d['block']
+      this.blockName=d['block']
       this.branch = d['branch']
       this.college = d['college']
       this.email = d['email']
       this.father = d['father']
-      this.floor = d['floor']
+      this.floor = d['floor'].toString()
       this.mother = d['mother']
       this.name = d['name']
-      this.phoneNo = d['phoneNo']
+      this.phoneNo = parseInt(d['phoneNo']);
       this.rollno = d['rollno']
-      this.room = d['room']
+      this.room = d['room'].toString()
       this.selectdate = d['selectdate'].slice(0,10)
-      // console.log('selectdate',this.selectdate)
+     
       this.year = d['year']
 
 
@@ -329,61 +330,29 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
   finaledit() {
 
 
-    // name:req.body.name,
-    // email:req.body.email,
-    // phoneNo:req.body.phoneNo,
-    // college:req.body.college,
-    // floor:req.body.floor,
-    // room:req.body.room,
-    // year:req.body.year,
-    // block:req.body.blockName,
-    // father:req.body.father,
-    // mother:req.body.mother,
-    // rollno: parseInt(req.body.rollno),
-    // selectdate:req.body.selectdate,
-    // branch:req.body.branch,
-    // address:req.body.address
-
-
-
-
-
-
-    // this.address = d['address']
-    //   this.blockName = d['blockName']
-    //   this.branch = d['branch']
-    //   this.college = d['college']
-    //   this.email = d['email']
-    //   this.father = d['father']
-    //   this.floor = d['floor']
-    //   this.mother = d['mother']
-    //   this.name = d['name']
-    //   this.phoneNo = d['phoneNo']
-    //   this.rollno = d['rollno']
-    //   this.room = d['room']
-    //   this.selectdate = d['selectdate'].slice(0,10)
-    //   // console.log('selectdate',this.selectdate)
-    //   this.year = d['year']
-
-    //here the data(all the variables) we binded to variables with ngModel need to be represented in a JSON format
-
      var data={name:this.name,email:this.email,phoneNo: this.phoneNo,college: this.college,floor:this.floor ,room: this.room ,year: this.year ,blockName: this.blockName,blockNameU: this.blockNameU,father:this.father,mother: this.mother ,rollno: this.rollno ,selectdate: this.selectdate,branch: this.branch,address: this.address}
-    
-     console.log(data);
+     
+
 
     this.allocate.finaledit(data).subscribe((d)=>{
 
       alert('Edited Successfully');
-      // console.log(d);
+
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/addstudent']);
+      });
 
     },(error)=>{
       
-      // console.log(error);
+      console.log(error);
       if(error.status==500){
           alert('Internal server Error');
       }
 
     })
+
+
+
 
   }
 
@@ -417,14 +386,5 @@ export class AddstudentComponent implements OnInit, AfterViewInit {
     });
 
   }
-
-
-
-
-
-
-
-
-
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { AllocationService } from '../allocation.service'
 
 declare const $;
 
@@ -10,7 +11,10 @@ declare const $;
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+
+  showbuildings: any
+
+  constructor(private router: Router,private allocate: AllocationService) { }
 
   ngOnInit() {
 
@@ -31,6 +35,20 @@ export class DashboardComponent implements OnInit {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
+
+
+    this.allocate.showbuildings().subscribe((d)=>{
+   
+      this.showbuildings=d;
+      // console.log(d);
+
+  },(error)=>{
+    
+     if(error['status']==500){
+       alert('Internal Server Error')
+     }
+
+ })
 
   }
 

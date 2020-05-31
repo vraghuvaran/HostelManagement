@@ -64,3 +64,27 @@
     background-color: #FFE53B;
     background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 100%);
   }
+
+  .modal-dialog-full-width {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width:none !important;
+
+}
+
+.modal-content-full-width  {
+    height: auto !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+    background-color: white !important 
+}
+
+.modal-header-full-width  {
+    border-bottom: 1px solid white !important;
+}
+
+.modal-footer-full-width  {
+    border-top: 1px solid white !important;
+}

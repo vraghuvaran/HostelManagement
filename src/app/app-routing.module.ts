@@ -11,7 +11,7 @@ import { AddstudentComponent } from './addstudent/addstudent.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { LocationComponent } from './location/location.component';
 
 
 
@@ -27,7 +27,8 @@ const routes: Routes = [
   {path: 'addstudent', component: AddstudentComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'buildingwiseinfo', component: BuildingwiseinfoComponent},
-  {path: 'logout',component: LogoutComponent}
+  {path: 'logout',component: LogoutComponent},
+  {path: 'location', component: LocationComponent}
   
   
 ];

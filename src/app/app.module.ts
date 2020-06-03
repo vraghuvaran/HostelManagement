@@ -22,6 +22,7 @@ import { AddstudentComponent } from './addstudent/addstudent.component';
 import { BuildingwiseinfoComponent } from './buildingwiseinfo/buildingwiseinfo.component';
 import { LogoutComponent } from './logout/logout.component';
 import { FloorwiseComponent } from './floorwise/floorwise.component';
+import { LocationComponent } from './location/location.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { FloorwiseComponent } from './floorwise/floorwise.component';
     AddstudentComponent,
     BuildingwiseinfoComponent,
     LogoutComponent,
-    FloorwiseComponent
+    FloorwiseComponent,
+    LocationComponent
     
   ],
   imports: [
